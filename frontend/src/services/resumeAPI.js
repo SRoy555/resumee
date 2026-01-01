@@ -1,0 +1,16 @@
+import axios from "axios";
+
+export const getResumes = async () => {
+  const token = localStorage.getItem("token");
+
+  const response = await axios.get(
+    "http://localhost:5000/api/resume",
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+
+  return response.data;
+};
